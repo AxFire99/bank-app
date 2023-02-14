@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- *
+ *The Client class represents a client from the bank
  */
 public class Client {
     private String name;
@@ -12,10 +12,10 @@ public class Client {
     private final ArrayList<Account> bankAccounts = new ArrayList<Account>();
 
     /**
-     * @param name
-     * @param age
-     * @param debt
-     * @param nChildren
+     * @param name Name of the client.
+     * @param age Age of the client.
+     * @param debt Amount of money the client owns the bank.
+     * @param nChildren Amount of children the client has.
      */
     public Client(String name, int age, double debt, int nChildren) {
         this.name = name;
@@ -56,6 +56,11 @@ public class Client {
         this.nChildren = nChildren;
     }
 
+    /**
+     * @param accounts Amount of accounts the client has.
+     * @return <code>true</code> if the account is added successfully;
+     * @throws ArrayStoreException if the account was already added to the client.
+     */
     public Boolean addAccount(Account... accounts) {
         for(Account account : accounts){
             if(!bankAccounts.contains(account)){
