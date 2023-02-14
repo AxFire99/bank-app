@@ -1,18 +1,35 @@
+import java.util.ArrayList;
+import java.util.Collection;
+
+/**
+ *
+ */
 public class Client {
     private String name;
     private int age;
     private double debt;
-    private int numberChildren;
+    private int nChildren;
+    private final ArrayList<Account> bankAccounts = new ArrayList<Account>();
 
-    public Client(String name, int age, double debt, int numberChildren) {
+    /**
+     * @param name
+     * @param age
+     * @param debt
+     * @param nChildren
+     */
+    public Client(String name, int age, double debt, int nChildren) {
         this.name = name;
         this.age = age;
         this.debt = debt;
-        this.numberChildren = numberChildren;
+        this.nChildren = nChildren;
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAge() {
@@ -31,11 +48,26 @@ public class Client {
         this.debt = debt;
     }
 
-    public int getNumberChildren() {
-        return numberChildren;
+    public int getnChildren() {
+        return nChildren;
     }
 
-    public void setNumberChildren(int numberChildren) {
-        this.numberChildren = numberChildren;
+    public void setnChildren(int nChildren) {
+        this.nChildren = nChildren;
+    }
+
+    public Boolean addAccount(Account... accounts) {
+        for(Account account : accounts){
+            if(!bankAccounts.contains(account)){
+                bankAccounts.add(account);
+            }else {
+                throw new ArrayStoreException("this account already was added to this client");
+            }
+        }
+        return true;
+    }
+
+    public ArrayList<Account> getBankAccounts() {
+        return bankAccounts;
     }
 }
