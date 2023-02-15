@@ -1,15 +1,15 @@
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *The Client class represents a client from the bank
  */
 public class Client {
-    private String name;
-    private int age;
-    private double debt;
-    private int nChildren;
-    private final ArrayList<Account> bankAccounts = new ArrayList<Account>();
+    private final String name;
+    private final int age;
+    private final double debt;
+    private final int nChildren;
+    private final Set<Account> bankAccounts = new HashSet<>();
 
     /**
      * @param name Name of the client.
@@ -27,52 +27,21 @@ public class Client {
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getAge() {
         return age;
     }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public double getDebt() {
         return debt;
     }
-
-    public void setDebt(double debt) {
-        this.debt = debt;
-    }
-
     public int getnChildren() {
         return nChildren;
     }
 
-    public void setnChildren(int nChildren) {
-        this.nChildren = nChildren;
+    public Boolean addAccount(Account account) {
+        return this.bankAccounts.add(account);
     }
 
-    /**
-     * @param accounts Amount of accounts the client has.
-     * @return <code>true</code> if the account is added successfully;
-     * @throws ArrayStoreException if the account was already added to the client.
-     */
-    public Boolean addAccount(Account... accounts) {
-        for(Account account : accounts){
-            if(!bankAccounts.contains(account)){
-                bankAccounts.add(account);
-            }else {
-                throw new ArrayStoreException("this account already was added to this client");
-            }
-        }
-        return true;
-    }
-
-    public ArrayList<Account> getBankAccounts() {
+    public Set<Account> getBankAccounts() {
         return bankAccounts;
     }
 }

@@ -1,7 +1,7 @@
 public class ClientAssessment {
-    private static double age = 0.25;
-    private static double debt = 0.45;
-    private static double child = 0.30;
+    static final double age = 0.25;
+    static final double debt = 0.45;
+    static final double child = 0.30;
 
     public static boolean assess (Client client){
         double risk = 0;
